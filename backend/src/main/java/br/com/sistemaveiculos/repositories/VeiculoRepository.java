@@ -11,7 +11,7 @@ import br.com.sistemaveiculos.entities.Veiculo;
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 
-	@Query(value = "select sum(v.*) from tb_veiculo v where vendido = false", nativeQuery = true)
+	@Query(value = "select count(*) from tb_veiculo where vendido = FALSE", nativeQuery = true)
 	Integer qtdNaoVendidos();
 	
 	@Query(value = "select COUNT(*) as veiculo, "

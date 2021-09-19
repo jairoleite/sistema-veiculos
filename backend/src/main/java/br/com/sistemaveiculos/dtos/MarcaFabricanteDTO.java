@@ -1,15 +1,17 @@
 package br.com.sistemaveiculos.dtos;
 
+import java.math.BigInteger;
+
 import lombok.Getter;
 
 @Getter
 public class MarcaFabricanteDTO {
 
-	private Integer qtdVeiculo;
+	private BigInteger qtdVeiculo;
 	private String marca;
 	
 	public MarcaFabricanteDTO(Object[] obj) {
-		this.qtdVeiculo = (Integer) obj[0];
+		this.qtdVeiculo = (BigInteger) obj[0];
 		this.marca = (String) obj[1];
 	}
 }

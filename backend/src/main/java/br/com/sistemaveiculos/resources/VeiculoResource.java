@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.sistemaveiculos.dtos.DecadaFabricacaoDTO;
+import br.com.sistemaveiculos.dtos.MarcaFabricanteDTO;
 import br.com.sistemaveiculos.dtos.VeiculoDTO;
 import br.com.sistemaveiculos.services.VeiculoService;
 
@@ -40,6 +42,21 @@ public class VeiculoResource {
 	@GetMapping("/{id}")
 	public ResponseEntity<VeiculoDTO> pegaPorId(@PathVariable Long id) {
 		return ResponseEntity.ok(service.pegaPorId(id));
+	}
+
+	@GetMapping("/nao-vendidos")
+	public ResponseEntity<Integer> veiculoNaoVendido() {
+		return ResponseEntity.ok(service.pegaQtdNaoVendidos());
+	}
+	
+	@GetMapping("/decadas")
+	public ResponseEntity<List<DecadaFabricacaoDTO>> listaPorDecadas() {
+		return ResponseEntity.ok(service.listaDistribuicaoPorDecada());
+	}
+	
+	@GetMapping("/fabricantes")
+	public ResponseEntity<List<MarcaFabricanteDTO>> listaPorFabricantes() {
+		return ResponseEntity.ok(service.listaDistribuicaoPorMarca());
 	}
 	
 	@PostMapping
