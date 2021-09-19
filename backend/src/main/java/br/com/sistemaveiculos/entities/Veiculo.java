@@ -30,6 +30,18 @@ public class Veiculo {
 	private LocalDateTime created;
 	private LocalDateTime updated;
 	
+	public Veiculo() {
+	}
+	
+	public Veiculo(Long id, String veiculo, String marca, Integer ano, String descricao, Boolean vendido) {
+		this.id = id;
+		this.veiculo = veiculo;
+		this.marca = marca;
+		this.ano = ano;
+		this.descricao = descricao;
+		this.vendido = vendido;
+	}
+
 	@PrePersist
 	public void prePersist() {
 		this.created = LocalDateTime.now();
